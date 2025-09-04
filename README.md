@@ -7,3 +7,7 @@ semana 1 (07/08/2025):Inicio del curso :fire:
  +Sincronizar nube y computadora
  +Credenciales Git
  +segundo
+ 
+ *Semana 2* (14/08/2025): Laboratorio 1 :
+ + Recorrido por los paneles
+ + Aprendiendo funciones
