@@ -1,0 +1,360 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Script-4.R},
+  pdfauthor={Usuario},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Script-4.R}
+\author{Usuario}
+\date{2025-08-28}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script 4}
+\CommentTok{\# 28/08/2025}
+\CommentTok{\# Javier Francisco Santos}
+
+\CommentTok{\# Importar datos}
+\NormalTok{calidad }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"calidadplanta.csv"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{View}\NormalTok{(calidad)}
+
+\CommentTok{\# Asegurar que Tratamiento es un factor}
+\NormalTok{calidad}\SpecialCharTok{$}\NormalTok{Tratamiento }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{Tratamiento)}
+\FunctionTok{class}\NormalTok{(calidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(calidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      planta            IE         Tratamiento
+##  Min.   : 1.00   Min.   :0.5500   Ctrl:21    
+##  1st Qu.:11.25   1st Qu.:0.7025   Fert:21    
+##  Median :21.50   Median :0.7950              
+##  Mean   :21.50   Mean   :0.8371              
+##  3rd Qu.:31.75   3rd Qu.:0.9375              
+##  Max.   :42.00   Max.   :1.1600
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Medidas descriptivas}
+\FunctionTok{mean}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8371429
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tapply}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE, calidad}\SpecialCharTok{$}\NormalTok{Tratamiento, mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Ctrl      Fert 
+## 0.7676190 0.9066667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tapply}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE, calidad}\SpecialCharTok{$}\NormalTok{Tratamiento, sd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Ctrl      Fert 
+## 0.1153215 0.1799537
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tapply}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE, calidad}\SpecialCharTok{$}\NormalTok{Tratamiento, var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Ctrl       Fert 
+## 0.01329905 0.03238333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Gráficos de caja}
+\NormalTok{colores }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"green"}\NormalTok{, }\StringTok{"red"}\NormalTok{)}
+
+\FunctionTok{boxplot}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calidad}\SpecialCharTok{$}\NormalTok{Tratamiento,}
+        \AttributeTok{col =}\NormalTok{ colores,}
+        \AttributeTok{xlab =} \StringTok{"Tratamiento aplicado"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Índice de Eficiencia (IE)"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Calidad de plantas"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script-4_files/figure-latex/unnamed-chunk-1-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calidad}\SpecialCharTok{$}\NormalTok{Tratamiento,}
+        \AttributeTok{col =}\NormalTok{ colores,}
+        \AttributeTok{xlab =} \StringTok{"Tratamiento aplicado"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Índice de Eficiencia (IE)"}\NormalTok{,}
+        \AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.4}\NormalTok{, }\FloatTok{1.2}\NormalTok{),}
+        \AttributeTok{main =} \StringTok{"Calidad de plantas"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script-4_files/figure-latex/unnamed-chunk-1-2.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Subconjuntos por tratamiento}
+\NormalTok{df\_ctrl }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(calidad, Tratamiento }\SpecialCharTok{==} \StringTok{"ctrl"}\NormalTok{)}
+\NormalTok{df\_fert }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(calidad, Tratamiento }\SpecialCharTok{==} \StringTok{"fert"}\NormalTok{)  }\CommentTok{\# Asegúrate de que "fert" sea el otro tratamiento correcto}
+
+\CommentTok{\# Crear los subconjuntos}
+\NormalTok{df\_ctrl }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(calidad, Tratamiento }\SpecialCharTok{==} \StringTok{"Ctrl"}\NormalTok{)}
+\NormalTok{df\_fert }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(calidad, Tratamiento }\SpecialCharTok{==} \StringTok{"Fert"}\NormalTok{)  }\CommentTok{\# Asegúrate del nombre exacto}
+
+\CommentTok{\# QQ{-}plots para comprobar normalidad}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+
+\FunctionTok{qqnorm}\NormalTok{(}\FunctionTok{na.omit}\NormalTok{(df\_ctrl}\SpecialCharTok{$}\NormalTok{IE)); }\FunctionTok{qqline}\NormalTok{(}\FunctionTok{na.omit}\NormalTok{(df\_ctrl}\SpecialCharTok{$}\NormalTok{IE))}
+\FunctionTok{qqnorm}\NormalTok{(}\FunctionTok{na.omit}\NormalTok{(df\_fert}\SpecialCharTok{$}\NormalTok{IE)); }\FunctionTok{qqline}\NormalTok{(}\FunctionTok{na.omit}\NormalTok{(df\_fert}\SpecialCharTok{$}\NormalTok{IE))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script-4_files/figure-latex/unnamed-chunk-1-3.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\CommentTok{\# Prueba de normalidad}
+\FunctionTok{shapiro.test}\NormalTok{(df\_ctrl}\SpecialCharTok{$}\NormalTok{IE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  df_ctrl$IE
+## W = 0.9532, p-value = 0.3908
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(df\_fert}\SpecialCharTok{$}\NormalTok{IE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  df_fert$IE
+## W = 0.95339, p-value = 0.3941
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Prueba de homogeneidad de varianzas}
+\FunctionTok{var.test}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calidad}\SpecialCharTok{$}\NormalTok{Tratamiento)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  calidad$IE by calidad$Tratamiento
+## F = 0.41068, num df = 20, denom df = 20, p-value = 0.05304
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.1666376 1.0121038
+## sample estimates:
+## ratio of variances 
+##          0.4106757
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Prueba t de Student (dos colas)}
+\FunctionTok{t.test}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calidad}\SpecialCharTok{$}\NormalTok{Tratamiento,}
+       \AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{,}
+       \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Two Sample t-test
+## 
+## data:  calidad$IE by calidad$Tratamiento
+## t = -2.9813, df = 40, p-value = 0.004868
+## alternative hypothesis: true difference in means between group Ctrl and group Fert is not equal to 0
+## 95 percent confidence interval:
+##  -0.23331192 -0.04478332
+## sample estimates:
+## mean in group Ctrl mean in group Fert 
+##          0.7676190          0.9066667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ejemplo erróneo (una cola: mayor)}
+\FunctionTok{t.test}\NormalTok{(calidad}\SpecialCharTok{$}\NormalTok{IE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calidad}\SpecialCharTok{$}\NormalTok{Tratamiento,}
+       \AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{,}
+       \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Two Sample t-test
+## 
+## data:  calidad$IE by calidad$Tratamiento
+## t = -2.9813, df = 40, p-value = 0.9976
+## alternative hypothesis: true difference in means between group Ctrl and group Fert is greater than 0
+## 95 percent confidence interval:
+##  -0.2175835        Inf
+## sample estimates:
+## mean in group Ctrl mean in group Fert 
+##          0.7676190          0.9066667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cálculo del tamaño del efecto de Cohen\textquotesingle{}s d}
+\NormalTok{cohens\_efecto }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{  n1 }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x); n2 }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(y)}
+\NormalTok{  s1 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(x); s2 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(y)}
+\NormalTok{  sp }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(((n1 }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ s1}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ (n2 }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ s2}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ (n1 }\SpecialCharTok{+}\NormalTok{ n2 }\SpecialCharTok{{-}} \DecValTok{2}\NormalTok{))}
+\NormalTok{  (}\FunctionTok{mean}\NormalTok{(x) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(y)) }\SpecialCharTok{/}\NormalTok{ sp}
+\NormalTok{\}}
+
+\NormalTok{d1\_cal }\OtherTok{\textless{}{-}} \FunctionTok{cohens\_efecto}\NormalTok{(df\_ctrl}\SpecialCharTok{$}\NormalTok{IE, df\_fert}\SpecialCharTok{$}\NormalTok{IE)}
+\NormalTok{d1\_cal}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.9200347
+\end{verbatim}
+
+\end{document}
