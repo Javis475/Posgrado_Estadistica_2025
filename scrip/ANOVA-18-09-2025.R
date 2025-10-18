@@ -60,7 +60,7 @@ library(ggplot2)
 ggplot(crop, aes(x=fertilizer, y = yield, fill = 
                    fertilizer))+
   geom_violin(alpha = 0.5)+
-  geom_jitter(col = "indianred")+
+  geom_jitter(col = "black")+
   geom_boxplot(width = 0.1, col = "white")
   theme_light()
 

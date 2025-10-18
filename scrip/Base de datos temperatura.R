@@ -1,3 +1,5 @@
+#Scrip 2
+temperatura <- read.csv("data/temperatura.csv")
 View(temperatura)
 
 head(temperatura) #Primeras 6 filas
@@ -25,6 +27,7 @@ temperatura[2,2]
 boxplot(temp10, col = colores, 
         main = "comportamiento temperatura (2010 a 2020",
         xlab = "meses",
-        ylab =  "temperatura (°c)")
-javier
+        ylab =  "temperatura (°c)"
+        
+        
         
